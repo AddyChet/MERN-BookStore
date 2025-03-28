@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
 import { getImgUrl } from "../../utils/getImgUrl";
-import { clearCart, removeFromCart } from "../../redux/features/cart/cartSlice";
+import { clearCart, removeFromCart } from "../../redux/features/cart/CartSlice";
 
 const CartPage = () => {
   const cartItems = useSelector((state) => state.cart.cartItems);
