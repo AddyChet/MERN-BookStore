@@ -7,7 +7,6 @@ import { clearCart, removeFromCart } from "../../redux/features/cart/CartSlice";
 const CartPage = () => {
   const cartItems = useSelector((state) => state.cart.cartItems);
 
- console.log(cartItems)
  const totalPrice = () => {
     let count = 0
     cartItems.forEach(product => count += product.newPrice )

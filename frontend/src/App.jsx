@@ -8,24 +8,29 @@ import Login from "./components/Login";
 import Register from "./components/Register";
 import CartPage from "./pages/books/CartPage";
 import Checkout from "./pages/books/Checkout";
+import SingleBook from "./pages/books/SingleBook";
+import { AuthProvider } from "./context/AuthContext.jsx";
 
 const App = () => {
   return (
     <>
-      <Navbar />
-      <main className="min-h-screen max-w-screen-xl mx-auto px-4 py-4 font-primary">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<h1>about</h1>} />
-          <Route path="/orders" element={<h1>orders</h1>} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/cart" element={<CartPage/>} />
-          <Route path="/checkout" element={<Checkout/>} />
-        </Routes>
-      </main>
+      <AuthProvider>
+        <Navbar />
+        <main className="min-h-screen max-w-screen-xl mx-auto px-4 py-4 font-primary">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<h1>about</h1>} />
+            <Route path="/orders" element={<h1>orders</h1>} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/cart" element={<CartPage />} />
+            <Route path="/checkout" element={<Checkout />} />
+            <Route path="/books/:id" element={<SingleBook />} />
+          </Routes>
+        </main>
 
-      <Footer />
+        <Footer />
+      </AuthProvider>
     </>
   );
 };

@@ -5,22 +5,14 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import { Navigation } from "swiper/modules";
+import { useFetchAllBooksQuery } from "../../redux/books/booksApi";
 
 const categories = ["Choose a genre", "Business", "Fiction", "Horror", "Adventure"];
 
 const TopSellers = () => {
-  const [books, setBooks] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("");
 
-  useEffect(() => {
-    fetchBook();
-  }, []);
-
-  const fetchBook = async () => {
-    const res = await fetch("books.json");
-    const data = await res.json();
-    setBooks(data);
-  };
+  const {data : books = []} = useFetchAllBooksQuery()
 
   const filterBooks =
     selectedCategory === "" || selectedCategory === "Choose a genre"

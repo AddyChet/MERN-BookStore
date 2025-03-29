@@ -20,7 +20,7 @@ const navigation = [
 const Navbar = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const cartItems = useSelector(state => state.cart.cartItems)
-  console.log(cartItems)
+
   const currentuser = false;
   return (
     <header className="max-w-screen-xl mx-auto px-4 py-6">
